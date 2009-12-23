@@ -1,0 +1,16 @@
+= bbc_standards
+
+* http://github.com/metade/bbc_standards
+
+== DESCRIPTION:
+
+BBCStandards provides rspec helpers for checking whether documents conform to the BBC FM&T Guidelines and Standards.
+
+See http://www.bbc.co.uk/guidelines/futuremedia/technical/ for more details.
+
+== SYNOPSIS:
+
+== REQUIREMENTS:
+
+* depends on markup_validity and raakt
+
