@@ -21,7 +21,7 @@ spec = Gem::Specification.new do |s|
 
   # Change these as appropriate
   s.name              = "bbc_standards"
-  s.version           = "0.1.0"
+  s.version           = "0.1.1"
   s.summary           = "What this thing does"
   s.author            = "Patrick Sinclair"
   s.email             = "metade@gmail.com"
