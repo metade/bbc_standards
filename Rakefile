@@ -21,8 +21,8 @@ spec = Gem::Specification.new do |s|
 
   # Change these as appropriate
   s.name              = "bbc_standards"
-  s.version           = "0.1.1"
-  s.summary           = "What this thing does"
+  s.version           = "0.1.2"
+  s.summary           = "BBCStandards provides rspec helpers for checking whether documents conform to the BBC FM&T Guidelines and Standards."
   s.author            = "Patrick Sinclair"
   s.email             = "metade@gmail.com"
   s.homepage          = "http://github.com/metade/bbc_standards"
