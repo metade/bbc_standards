@@ -61,7 +61,7 @@ module BBCStandards
       @errors << Error.new("Page doesn't have 1 <h1> tag") unless @doc.xpath('//h1').size == 1
       @errors << Error.new("Page doesn't have any <h2> tags") unless @doc.xpath('//h2').size > 0
       @errors << Error.new("Page is using <br> for whitespace") if @xml =~ /<br\/>\s*<br\/>/
-      %w(b i font marquee).each do |tag|
+      %w(b i big blink marquee s strike tt u center nobr font).each do |tag|
         @errors << Error.new("Page is using <#{tag}>") if @doc.xpath("//#{tag}").any?
       end
     end
