@@ -7,7 +7,7 @@ module BBCStandards
     def initialize(xml)
       @xml = xml
       # TODO: remove this once Barlesque sorts out the BBC Search form
-      @xml.sub!('<form method="get" action="http://search.bbc.co.uk/search" accept-charset="utf-8"><fieldset><input',
+      @xml.sub!('<form method="get" action="http://search.bbc.co.uk/search" accept-charset="utf-8"> <fieldset>  <input',
         '<form method="get" action="http://search.bbc.co.uk/search" accept-charset="utf-8"><fieldset><legend>foo</legend><input')
       @doc = Nokogiri::HTML(xml)
       @errors = []
