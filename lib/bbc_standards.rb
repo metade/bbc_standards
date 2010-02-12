@@ -5,5 +5,5 @@ require 'bbc_standards/validator'
 require 'bbc_standards/rspec'
 
 module BBCStandards
-  VERSION = '0.1.1'
+  VERSION = '0.1.3'
 end
