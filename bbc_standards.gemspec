@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{bbc_standards}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Patrick Sinclair", "Pete Otaqui"]
-  s.date = %q{2010-02-11}
+  s.authors = ["Patrick Sinclair","Pete Otaqui"]
+  s.date = %q{2010-02-12}
   s.email = %q{metade@gmail.com}
   s.extra_rdoc_files = ["README"]
   s.files = ["README", "spec", "lib/bbc_standards", "lib/bbc_standards/rspec.rb", "lib/bbc_standards/validator.rb", "lib/bbc_standards.rb"]

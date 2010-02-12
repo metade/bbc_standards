@@ -57,14 +57,30 @@ module BBCStandards
     end
     
     def test_bbc_standards
+      rt = Raakt::Test.new(@xml)
+      # Check title structure
       @errors << Error.new("Title is not valid") unless @xml =~ /<title>\w+( - )?([^<-]+)?( - )?([^<-]+)?<\/title>/
+      # Check 1 h1 tag
       @errors << Error.new("Page doesn't have 1 <h1> tag") unless @doc.xpath('//h1').size == 1
-      @errors << Error.new("Page doesn't have any <h2> tags") unless @doc.xpath('//h2').size > 0
+      # Check heading structure
+      @errors << Error.new("Document heading structure is wrong") unless rt.check_document_structure.size == 0
+      # Check images have alt tags
+      @errors += rt.check_images.map { |e| Error.new(e.text) }
+      # Check images have width and height attributes
+      @doc.xpath('//img').each do |img|
+        src_a = img.to_s.match(/src="([^"]*)"/)
+        src = src_a.size > 0 ? src_a[0] : "{NO src ATTRIBUTE}"
+        @errors << Error.new("No width for img with source #{src}") unless img.to_s =~ /width="\d+"/
+        @errors << Error.new("No height for img with source #{src}") unless img.to_s =~ /height="\d+"/
+      end
+      # Check use of <br/> for whitespace (more than one consecutive <br/>)
       @errors << Error.new("Page is using <br> for whitespace") if @xml =~ /<br\/>\s*<br\/>/
+      # Check for banned tags
       %w(b i big blink marquee s strike tt u center nobr font).each do |tag|
         @errors << Error.new("Page is using <#{tag}>") if @doc.xpath("//#{tag}").any?
       end
     end
+    
   end
   
   class Error

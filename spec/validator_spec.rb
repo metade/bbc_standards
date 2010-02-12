@@ -28,6 +28,35 @@ describe BBCStandards::Validator do
     end
   end
   
+  describe "validating invalid image tags" do
+    before(:each) do
+      @validator = BBCStandards::Validator.new(%[
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-GB" lang="en-GB">
+          <head>
+            <title>hello world</title>
+          </head>
+          <body>
+            <h1>My h1</h1>
+            <h2>My h2</h2>
+            <p>
+              <img src="width_and_height.jpg" width="14" height="14" alt="Some Alt Text" />
+              <img src="width.jpg" width="14" alt="Some Other Alt Text" />
+              <img src="height.jpg" height="14" alt="Yet More Alt Text" />
+            </p>
+          </body>
+        </html>
+      ])
+    end
+    
+    it "should add 2 errors" do
+      @validator.errors.size.should equal(2)
+    end
+    
+    it "should return a message when inspected" do
+      @validator.inspect.should_not be_empty
+    end
+  end
+  
   describe "validating valid content" do
     before(:each) do
       @validator = BBCStandards::Validator.new(%[
