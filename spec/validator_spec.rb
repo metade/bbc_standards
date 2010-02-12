@@ -39,9 +39,9 @@ describe BBCStandards::Validator do
             <h1>My h1</h1>
             <h2>My h2</h2>
             <p>
-              <img src="width_and_height.jpg" width="14" height="14" alt="Some Alt Text" />
-              <img src="width.jpg" width="14" alt="Some Other Alt Text" />
-              <img src="height.jpg" height="14" alt="Yet More Alt Text" />
+              <img src="width_and_height.jpg" width="14" height="14" alt="Image has width and height attributes" />
+              <img src="width.jpg" width="14" alt="Image ONLY has width attribute" />
+              <img src="height.jpg" height="14" alt="Image ONLY has height attribute" />
             </p>
           </body>
         </html>
