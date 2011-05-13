@@ -2,15 +2,9 @@ require "rubygems"
 require "rake/gempackagetask"
 require "rake/rdoctask"
 
-require "spec"
-require "spec/rake/spectask"
-Spec::Rake::SpecTask.new do |t|
-  t.spec_opts = %w(--format specdoc --colour)
-  t.libs = ["spec"]
-end
-
-
-task :default => ["spec"]
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec)
+task :default => :spec
 
 # This builds the actual gem. For details of what all these options
 # mean, and other ones you can add, check the documentation here:
@@ -21,7 +15,7 @@ spec = Gem::Specification.new do |s|
 
   # Change these as appropriate
   s.name              = "bbc_standards"
-  s.version           = "0.1.3"
+  s.version           = "0.1.4"
   s.summary           = "BBCStandards provides rspec helpers for checking whether documents conform to the BBC FM&T Guidelines and Standards."
   s.author            = "Patrick Sinclair"
   s.email             = "metade@gmail.com"
@@ -35,9 +29,9 @@ spec = Gem::Specification.new do |s|
   s.files             = %w(README) + Dir.glob("{spec,lib/**/*}")
   s.require_paths     = ["lib"]
 
-  # If you want to depend on other gems, add them here, along with any
-  # relevant versions
-  # s.add_dependency("some_other_gem", "~> 0.1.0")
+  # If you want to depend on other gems, add them here, along with any relevant versions
+  s.add_dependency("raakt", "~> 0.5.6")
+  s.add_dependency("markup_validity", "~> 1.1.0")
 
   # If your tests use any gems, include them here
   s.add_development_dependency("rspec")

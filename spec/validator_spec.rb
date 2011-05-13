@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'pp'
 
 describe BBCStandards::Validator do
   describe "validating invalid content" do
